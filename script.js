@@ -63,8 +63,13 @@ function play_round(human_choice, computer_choice) {
     }
 }
 
-
-for (i = 0; i < 2; ++i) {
-    console.log(play_round(get_human_choice(), get_computer_choice()))
-    console.log(`Score:\thuman: ${human_score}\tcomputer: ${computer_score}`)
+function playGame(n) {
+    for (i = 0; i < n; ++i) {
+        console.log(play_round(get_human_choice(), get_computer_choice()))
+        console.log(`Score:\thuman: ${human_score}\tcomputer: ${computer_score}`)
+    }
 }
+
+playGame(5);
+
+
