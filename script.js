@@ -7,3 +7,7 @@ function getComputerChoice() {
     else 
         return "scissors"
 }
+
+function getHumanChoice() {
+    return prompt("Enter rock | paper | scissors")
+}
