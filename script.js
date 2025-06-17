@@ -68,10 +68,20 @@ function play_round(human_choice, computer_choice) {
 const buttons = document.querySelector(".buttons")
 buttons.addEventListener("click", (e) => {
     display_result(play_round(e.target.textContent, get_computer_choice()));
-    console.log(`Score:\thuman: ${human_score}\tcomputer: ${computer_score}`)
 })
 
 function display_result(result) {
     const result_div = document.querySelector(".result");
     result_div.textContent = result;
 }
+
+function display_score() {
+    const score_div = document.querySelector(".score");
+    score_div.textContent = `Score:\thuman: ${human_score}\tcomputer: ${computer_score}`;
+}
+
+function init() {
+    display_score();
+}
+
+document.addEventListener("DOMContentLoaded", (e) => { init(); })
