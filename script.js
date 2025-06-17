@@ -63,13 +63,9 @@ function play_round(human_choice, computer_choice) {
     }
 }
 
-function playGame(n) {
-    for (i = 0; i < n; ++i) {
-        console.log(play_round(get_human_choice(), get_computer_choice()))
-        console.log(`Score:\thuman: ${human_score}\tcomputer: ${computer_score}`)
-    }
-}
-
-playGame(5);
-
+const buttons = document.querySelector(".buttons")
+    buttons.addEventListener("click", (e) => {
+    console.log(play_round(e.target.textContent, get_computer_choice()));
+    console.log(`Score:\thuman: ${human_score}\tcomputer: ${computer_score}`)
+})
 
