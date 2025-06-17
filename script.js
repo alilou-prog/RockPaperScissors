@@ -12,10 +12,12 @@ function get_human_choice() {
     return prompt("Enter rock | paper | scissors")
 }
 
+
 let human_score = 0, computer_score = 0
 const human_win_msg = "You win"
 const computer_win_msg = "You lose"
 const draw_msg = "Draw"
+
 
 function play_round(human_choice, computer_choice) {
     human_choice = human_choice.toLowerCase();
@@ -64,8 +66,12 @@ function play_round(human_choice, computer_choice) {
 }
 
 const buttons = document.querySelector(".buttons")
-    buttons.addEventListener("click", (e) => {
-    console.log(play_round(e.target.textContent, get_computer_choice()));
+buttons.addEventListener("click", (e) => {
+    display_result(play_round(e.target.textContent, get_computer_choice()));
     console.log(`Score:\thuman: ${human_score}\tcomputer: ${computer_score}`)
 })
 
+function display_result(result) {
+    const result_div = document.querySelector(".result");
+    result_div.textContent = result;
+}
