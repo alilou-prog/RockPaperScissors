@@ -14,9 +14,9 @@ function get_human_choice() {
 
 
 let human_score = 0, computer_score = 0
-const human_win_msg = "You win"
-const computer_win_msg = "You lose"
-const draw_msg = "Draw"
+const human_win_msg = "You win this round"
+const computer_win_msg = "You lose this round"
+const draw_msg = "Draw this round"
 
 
 function play_round(human_choice, computer_choice) {
@@ -68,6 +68,8 @@ function play_round(human_choice, computer_choice) {
 const buttons = document.querySelector(".buttons")
 buttons.addEventListener("click", (e) => {
     display_result(play_round(e.target.textContent, get_computer_choice()));
+    display_score();
+    check_end();
 })
 
 function display_result(result) {
@@ -85,3 +87,20 @@ function init() {
 }
 
 document.addEventListener("DOMContentLoaded", (e) => { init(); })
+
+function end_game(msg) {
+    const game_over_div = document.querySelector(".game-over");
+    game_over_div.textContent = msg;
+    for (btn of buttons.children) {
+        btn.disabled = true;
+    }
+}
+
+function check_end() {
+    if (human_score == 5) {
+        end_game("You win the game");
+    }
+    else if (computer_score == 5) {
+        end_game("You lose the game");
+    }
+}
